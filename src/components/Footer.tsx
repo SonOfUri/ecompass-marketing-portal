@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className="flex flex-wrap justify-between">
                     <div className="w-full md:w-1/3 mb-6 md:mb-0">
                         <h2 className="text-lg font-semibold mb-4 mr-2">About ExamCompass</h2>
-                        <p className="text-sm">We're revolutionizing the way students, parents, and teachers connect and learn. Stay tuned for our exciting launch!</p>
+                        <p className="text-sm">We&apos;re revolutionizing the way students, parents, and teachers connect and learn. Stay tuned for our exciting launch!</p>
                     </div>
                     <div className="w-full md:w-1/3 mb-6 md:mb-0">
                         <h2 className="text-lg font-semibold mb-4">Quick Links</h2>
