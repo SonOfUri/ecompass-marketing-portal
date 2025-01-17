@@ -11,14 +11,12 @@ import {
     TableRow,
 } from "@/components/ui/table"
 
-
 interface Subscription {
-    id: string
+    id: number
     email: string
-    telephone: string
-    whatsapp: string
-    role: string
-    createdAt: string
+    phone_number: string
+    whatsapp_number: string
+    is_subscribed: boolean
 }
 
 export default function AdminDashboard() {
@@ -32,11 +30,11 @@ export default function AdminDashboard() {
     const fetchSubscriptions = async () => {
         setIsLoading(true)
         try {
-            const response = await fetch('/api/subscriptions')
+            const response = await fetch('https://api.examcompassng.com/api/v1/info/mailing_list')
             if (!response.ok) {
                 throw new Error('Failed to fetch subscriptions')
             }
-            const data = await response.json()
+            const data: Subscription[] = await response.json()
             setSubscriptions(data)
         } catch (error) {
             console.error('Error fetching subscriptions:', error)
@@ -46,11 +44,11 @@ export default function AdminDashboard() {
     }
 
     const downloadCSV = () => {
-        const headers = ['ID', 'Email', 'Telephone', 'WhatsApp', 'Role', 'Created At']
+        const headers = ['ID', 'Email', 'Phone Number', 'WhatsApp Number', 'Subscribed']
         const csvContent = [
             headers.join(','),
             ...subscriptions.map(sub =>
-                [sub.id, sub.email, sub.telephone, sub.whatsapp, sub.role, sub.createdAt].join(',')
+                [sub.id, sub.email, sub.phone_number, sub.whatsapp_number, sub.is_subscribed].join(',')
             )
         ].join('\n')
 
@@ -74,27 +72,25 @@ export default function AdminDashboard() {
     return (
         <div>
             <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-semibold">Subscriptions</h2>
+                <h2 className="text-2xl font-semibold">Mailing List Subscriptions</h2>
                 <Button onClick={downloadCSV}>Download CSV</Button>
             </div>
             <Table>
                 <TableHeader>
                     <TableRow>
                         <TableHead>Email</TableHead>
-                        <TableHead>Telephone</TableHead>
-                        <TableHead>WhatsApp</TableHead>
-                        <TableHead>Role</TableHead>
-                        <TableHead>Created At</TableHead>
+                        <TableHead>Phone Number</TableHead>
+                        <TableHead>WhatsApp Number</TableHead>
+                        <TableHead>Subscribed</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {subscriptions.map((subscription) => (
                         <TableRow key={subscription.id}>
                             <TableCell>{subscription.email}</TableCell>
-                            <TableCell>{subscription.telephone}</TableCell>
-                            <TableCell>{subscription.whatsapp}</TableCell>
-                            <TableCell>{subscription.role}</TableCell>
-                            <TableCell>{new Date(subscription.createdAt).toLocaleString()}</TableCell>
+                            <TableCell>{subscription.phone_number}</TableCell>
+                            <TableCell>{subscription.whatsapp_number}</TableCell>
+                            <TableCell>{subscription.is_subscribed ? 'Yes' : 'No'}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -102,4 +98,3 @@ export default function AdminDashboard() {
         </div>
     )
 }
-
