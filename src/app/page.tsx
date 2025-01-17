@@ -19,8 +19,8 @@ export default function LandingPage() {
             <Image
               src="/banner.svg?height=400&width=600"
               alt="Launch Illustration"
-              width={600}
-              height={400}
+              width={300}
+              height={200}
               className="hidden md:block"
             />
           </div>
