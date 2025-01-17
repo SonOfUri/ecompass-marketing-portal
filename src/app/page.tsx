@@ -11,12 +11,14 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 py-12 flex flex-col lg:flex-row items-center justify-between">
           <div className="lg:w-1/2 mb-8 lg:mb-0">
             <h1 className="text-4xl font-bold mb-6 text-[#0b2f30]">Be The First To know!</h1>
-            <p className="text-xl mb-8 text-[#0b2f30]">
-              Don&apos;t miss out! Join thousands of students already on the path of success with EXAMCOMPASS.
-            <br/>
-                Sign up for newsletters to receive tips, updates, and exclusive access to our launch!
-            </p>
-            <Image
+              <p className="text-xl mb-8 text-[#0b2f30]">
+                  Don&apos;t miss out! Join thousands of students already on the path of success with EXAMCOMPASS.
+                  <br/>
+                  <br/>
+                
+                  Sign up for newsletters to receive tips, updates, and exclusive access to our launch!
+              </p>
+              <Image
               src="/banner.svg?height=400&width=600"
               alt="Launch Illustration"
               width={300}
