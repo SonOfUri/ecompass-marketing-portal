@@ -10,15 +10,18 @@ export default function LandingPage() {
       <main className="flex-grow bg-[linear-gradient(to_bottom,#d8cd33,#ffffff)] from-blue-100 to-white">
         <div className="container mx-auto px-4 py-12 flex flex-col lg:flex-row items-center justify-between">
           <div className="lg:w-1/2 mb-8 lg:mb-0">
-            <h1 className="text-4xl font-bold mb-6 text-[#0b2f30]">Stay Updated on Our Launch!</h1>
+            <h1 className="text-4xl font-bold mb-6 text-[#0b2f30]">Be The First To know!</h1>
             <p className="text-xl mb-8 text-[#0b2f30]">
-              Be the first to know when we launch. Subscribe now for exclusive updates and early access!
+              Don&apos;t miss out! Join thousands of students already on the path of success with EXAMCOMPASS.
+            <br/>
+                Sign up for newsletters to receive tips, updates, and exclusive access to our launch!
             </p>
             <Image
               src="/banner.svg?height=400&width=600"
               alt="Launch Illustration"
               width={600}
               height={400}
+              className="hidden md:block"
             />
           </div>
           <div className="lg:w-1/2 bg-white rounded-lg shadow-xl p-8">

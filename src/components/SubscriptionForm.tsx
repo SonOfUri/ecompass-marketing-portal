@@ -59,6 +59,20 @@ if (result.success) {
                     </SelectContent>
                 </Select>
             </div>
+
+            {/* Trust Badge / Privacy Agreement */}
+            <div className="flex justify-items-center space-x-2 w-[50%] ">
+                <Input
+                    type="checkbox"
+                    id="privacy_agreement"
+                    name="privacy_agreement"
+                    required
+                />
+                <Label htmlFor="privacy_agreement" className="text-sm">
+                    We respect your privacy. No Spam.
+                </Label>
+            </div>
+
             <Button type="submit" disabled={status === 'loading'} className="w-full bg-[#0b2f30]">
                 {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
             </Button>
