@@ -14,8 +14,8 @@ export async function subscribeUser(formData: FormData) {
         // Extract and map required fields to match the API structure
         const data = {
             email: formData.get('email'),
-            phone_number: formData.get('telephone'), // Map 'telephone' to 'phone_number'
-            whatsapp_number: formData.get('whatsapp'),
+            phone_number: formData.get('phone_number'), // Key corrected to match input name
+            whatsapp_number: formData.get('whatsapp_number'), // Key corrected to match input name
             role: formData.get('role'), // Include the 'role' field if needed
             is_subscribed: true // Default to true as per the API requirements
         }
